@@ -37,8 +37,8 @@ lin_reg_2.fit(X_poly,Y)
 plt.scatter(X,Y,color='red')
 plt.plot(X,lin_reg.predict(X),color='blue')
 plt.title('Truth of Bluff(Linear Regression)')
-plt.Xlabel('Position level')
-plt.Ylabel('Salary')
+plt.xlabel('Position level')
+plt.ylabel('Salary')
 plt.show()
 
 #visualising the polynomial
@@ -47,12 +47,18 @@ X_grid=X_grid.reshape((len(X_grid),1))
 plt.scatter(X,Y,color='red')
 plt.plot(X,lin_reg_2.predict(poly_reg.fit_transform(X)),color='blue')
 plt.title('Truth of Bluff(Polynomial Regression)')
-plt.Xlabel('Position level')
-plt.Ylabel('Salary')
+plt.xlabel('Position level')
+plt.ylabel('Salary')
 plt.show()
 
-#predict a new result with linear regression
-lin_reg.predict(6.5)
+#predict a new result with linear regression 
 
+# Reshape your input value either using 
+# array.reshape(-1, 1)  if your data has a single feature 
+# or array.reshape(1, -1) if it contains a single sample.
 
-lin_reg_2.predict(poly_reg.fit_transform(6.5))
+# linear model prediction
+lin_reg.predict(np.array([6.5]).reshape(1,-1))
+
+# Polinomial linear model prediction
+lin_reg_2.predict(poly_reg.fit_transform(np.array([6.5]).reshape(1,-1)))
